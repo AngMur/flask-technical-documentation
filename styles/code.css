@@ -1,0 +1,42 @@
+code {
+    background-color: #2a2a2a;
+    padding: 0.625rem; /* Equivalente a 10px */
+    border-radius: 0.25rem; /* Equivalente a 4px */
+    display: block;
+    margin: 0.625rem 1.25rem; /* Equivalente a 10px arriba/abajo y 20px izquierda/derecha */
+    white-space: pre-wrap;
+    text-align: left;
+    color: #ffc72c;
+}
+
+.code-block {
+    position: relative;
+    display: block;
+    margin: 1.875rem 0 3.125rem 0; /* Equivalente a 30px arriba, 0 abajo, 50px izquierda y 0 derecha */
+}
+
+.copy-button {
+    position: absolute;
+    right: 0;
+    padding: 0.3125rem 0.625rem; /* Equivalente a 5px arriba/abajo y 10px izquierda/derecha */
+    background-color: #444; /* Cambiar color de fondo a tono oscuro semigrisáceo */
+    color: #dcdcdc; /* Cambiar color del texto a blanco */
+    border: none;
+    border-radius: 0.25rem; /* Equivalente a 4px */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 1.25rem; /* Equivalente a 0 arriba/abajo y 20px izquierda/derecha */
+    /* font-family: ; */
+}
+.copy-button:hover {
+    background-color: #666; /* Cambiar color de fondo al tono oscuro semigrisáceo al pasar el mouse */
+}
+
+
+
+@media screen and (max-width: 750px)  {
+
+    .code-block, button{
+        font-size: 6px;
+    }
+}

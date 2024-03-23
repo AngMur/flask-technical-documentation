@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Documentation</title>
+    <link rel="stylesheet" href="./styles/body.css">
+    <link rel="stylesheet" href="./styles/code.css">
+    <link rel="stylesheet" href="./styles/img.css">
+    <link rel="stylesheet" href="./styles/scroll.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="https://cms-assets.tutsplus.com/uploads/users/30/posts/16037/preview_image/flask.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <h1 class="nav-title">Flask Documentation</h1>
+        <ul class="nav-list" id="navlist">
+            
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Section_1">
+            <h2 class="section-title">Instalación de Flask</h2>
+            <p>Para instalar flask podemos hacerlo generando un entorno virtual o directamente instalandolo en todo el sistema operativo.</p>
+            <div class="code-block">
+                <code>pip install Flask</code>
+                <button class="copy-button" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <p>Es un buena práctica utilizar un entorno virtual.</p>
+        </section>
+        <section class="main-section" id="Section_2">
+            <h2 id="section2" class="section-title">Aplicaciones</h2>
+            <p>En el contexto de Flask, una "aplicación" se refiere a una instancia de la clase Flask que representa tu aplicación web. Una aplicación Flask es esencialmente una instancia de tu servidor web, que puede manejar solicitudes HTTP y devolver respuestas adecuadas.</p>
+            <p>Cuando creas una aplicación Flask, estás configurando cómo se debe comportar tu servidor web, qué rutas debe manejar, qué funciones deben ejecutarse para cada ruta, cómo deben procesarse los datos de entrada y cómo deben generarse las respuestas.</p>
+            <div class="code-block">
+                <code>
+from flask import Flask
+
+# Crea una instancia de la clase Flask
+app = Flask(__name__)
+
+# Define una ruta para la página inicial 
+@app.route('/') #Esta parte se encarga de dictar la ruta
+def hello():
+    return '¡Hola, mundo! Esta es mi primera aplicación Flask.'
+
+# Si el script es ejecutado directamente, corre la aplicación en el servidor de desarrollo
+if __name__ == '__main__':
+    app.run(debug=True)
+                    </code>
+                <button class="copy-button" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <p>Para ejecutar tu aplicación Flask, simplemente ve a tu terminal, navega al directorio donde tienes el archivo app.py y ejecuta el siguiente comando:</p>
+            <div class="code-block">
+                <code>python app.py</code>
+                <button class="copy-button" onclick="copyCode(this)">Copiar</button>
+            </div>
+        </section>
+        <section class="main-section" id="Section_3">
+            <h2 id="section3" class="section-title">Estructura de proyecto</h2>
+            <p>La estructura que maneja Flask es la siguiente:</p>
+            <div class="img-container">
+                <img src="./img/project-structure.jpg" alt="Estructura de proyecto">
+            </div>
+            <p>Dentro del directorio raíz de nuestro proyecto encontramos la aplicación principal, en esta misma carpeta se cuentran otras dos que serán las encargadas de contener los archivos con extensión ".html" en el caso de templates y en el caso de static son todos aquellos recursos estáticos con los que interactuan nuestras plantillas.</p>
+            <p>Para acceder a ellos y a sus rutas utilizamos dentro del atributo "href" o "src" una intrucción como la siguiente.</p>
+            <div class="code-block">
+                <code>{{url_for('static', filename='styles.css')}}</code>
+                <button class="copy-button" onclick="copyCode(this)">Copiar</button>
+            </div>
+        </section>
+        <section class="main-section" id="Section_4">
+            <h2 id="section4" class="section-title">Modo Debug</h2>
+            <p>Un proyecto puedo encontrarse en desarrollo o en producción. Con producción nos referimos a que el proyecto ya está interactuando con usuarios reales, por otro lado, al estar en desarrollo simplemente lo estamos probando y mejorando.</p>
+            <p>Cuando colocamos nuestra aplicación en modo debug al momento de ejecutarla.</p>
+            <div class="code-block">
+                <code>app.run(debug=True)</code>
+            </div>          
+            <p>Tiene las siguiente implicaciones:</p>
+            <ul>
+                <li><strong>Recarga Automática:</strong> Cuando debug está activado, Flask automáticamente detectará cambios en tus archivos de código fuente y reiniciará el servidor para que puedas ver los cambios reflejados en tu aplicación sin tener que detener y reiniciar manualmente el servidor.</li>
+                <li><strong>Mensajes de Error Detallados:</strong> Cuando ocurre un error en tu aplicación, Flask mostrará mensajes de error más detallados en el navegador, lo que facilita la depuración y la identificación de problemas en tu código.</li>
+                <li><strong>Consola de Depuración:</strong> Si se produce un error en tu aplicación, Flask mostrará una consola de depuración en el navegador que te permite inspeccionar el estado de tu aplicación, variables locales, y más.</li>
+                <li><strong>Desactivar Caché:</strong> En modo de depuración, Flask desactiva la caché de las respuestas, lo que significa que los cambios realizados en tu código se reflejarán de inmediato en tu navegador sin necesidad de borrar la caché.</li>
+            </ul>         
+        </section>
+        <section  class="main-section" id="Section_5">
+            <h2 id="section5" class="section-title">Enrutamiento</h2>
+            <p>Flask funciona vinculando funciones de python a una URL, cuando esta URL es visitada el servidor ejecuta la porción de código atribuida. Flask permite relizar solicitudes como la siguiente:</p>
+
+            <div class="code-block">
+                <code>
+@app.route("/get")
+def peticion():
+    return "Respuesta de la petición"
+                </code>
+                <button class="copy-button" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <p>En este caso, se visite la URL "/get" python enviará la cadena dentro del return como respuesta.</p>
+            <br>
+            <p>Podemos obtener valores de la URL para ser usados como parametros de la función:</p>
+            <div class="code-block">
+                <code>
+@app.route('/user/&lt;username&gt;')
+    def show_profile(username):
+        return f'Perfil del usuario: {username}'
+                </code>
+                <button class="copy-button" onclick="copyCode(this)">Copiar</button>
+            </div>
+
+            <div class="code-block">
+                <code>
+from flask import request
+
+@app.route('/login')
+def user_authentication():
+    username = request.args.get('username', "No hay valor")
+    password = request.args.get('password', 'No hay valor')
+    return f'Nombre de usuario: {username}, Contraseña: {password}'           
+                </code>
+                <button class="copy-button" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <p>Usamos el modulo "request" para poder realizar la busqueda de argumentos dentro de la URL. En este caso el método get() recibe dos parametros el primero es el argumento a buscar y el segundo es el valor atribuido en caso de que la URL no contenga ese parametro.</p>
+            <code style="color:aliceblue">/login?username="rodTremond23"&password="1234"</code>
+
+        </section>
+        <section  class="main-section" id="Section_6">
+            <h2 id="section6" class="section-title">Solicitudes Ajax</h2>
+            
+            <p>Comencemos explicando que son las solicitudes Ajax y que es el DOM:</p>
+            <ul>
+                <li>
+                    <p><strong>DOM (Document Object Modeling).</strong> Hace referencia al modelo donde están plasmados los elementos en etiquetas dentro de nuestro archivo HTML.</p>
+                </li>
+                <li>
+                    <p><strong>AJAX (Asynchronous JavaScript And XML).</strong> Es una técnica que permite realizar solicitudes a un servidor web de forma asíncrona, es decir, no tiene necesidad de recargar toda la página para mostrar las respuestas obtenidas</p>
+                </li>
+            </ul>
+            <br>
+            <p>Para realizar una solicitud AJAX primero tenemos que agregar el siguiente script al inicio de nuestro documento HTML.</p>
+            <div class="code-block">
+                <code>&lt;script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"&gt;&lt;/script&gt;</code>
+                <button class="copy-button" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <p>Ejemplo de solicitud con un formulario:</p>
+            <div class="img-container">
+                <img src="./img/form-capture.JPG" alt="Formulario">
+            </div>
+            <div class="code-block">
+                <code>
+$(document).ready(() =>{
+    $('#myForm').on('submit', e => {
+        //Evita el envio a otra ruta
+        e.preventDefault();
+        //Obtenemos los valores de los campos
+        const usernameV = $('#username').val();
+        const passwordV = $('#password').val();
+        //Vaciamos los campos
+        $('#username').val("");
+        $('#password').val("");
+        //Realizamos la solicitud AJAX
+        $.ajax({
+            data: {
+                username: usernameV,
+                password: passwordV,
+            },
+            type: "POST",
+            url: "/get",
+        }).done((response) => {
+            console.log('Respuesta del servidor:', response);
+            $('#result').text(response);
+
+        }).fail((jqXHR, textStatus, errorThrown) => {
+            console.error('Error en la solicitud AJAX:', errorThrown);
+        });
+    });
+});
+                </code>
+                <button class="copy-button" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <p>La respuesta del AJAX se guarda dentro de una etiqueta &lt;p&gt; con el resultado de la siguiente función.</p>
+            <div class="img-container">
+                <img src="./img/ajax-request.JPG" alt="Formulario">
+            </div>
+        </section>
+    </main>
+
+    <script src="./scripts/copybtn.js"></script>
+    <script src="./scripts/navbar.js"></script>
+    <script src="./scripts/scrollsections.js"></script>
+</body>
+</html>

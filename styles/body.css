@@ -1,0 +1,138 @@
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #1f1f1f;
+    color: #dcdcdc;
+}
+
+section{
+    text-align: justify;
+    margin: 0 1rem;
+}
+
+button, #navbar, .main-section{
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.nav-link,
+.nav-link:visited,
+.nav-link:active{
+    text-decoration: none;
+    color: inherit;
+}
+
+#navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    border-right: 3px solid rgb(85, 64, 64);
+    font-size: 20px;
+}
+
+.nav-list{
+    height: 88%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.nav-title{
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: 0.75em;
+    text-align: center;
+}
+
+.nav-link{
+    display: block;
+    height: 2.25em;
+    border-top: 0.5px solid rgb(85, 64, 64);
+    text-align: left;
+    padding: 0.4em 0 0 0.75em;
+}
+
+.nav-list li:last-child {
+    border-bottom: 0.5px solid rgb(85, 64, 64);
+  }
+  
+
+#main-doc{
+    margin-left: 21.2em;
+    font-size: 15px;
+    padding: 1em;
+}
+
+
+
+#main-doc ul{
+    padding-left: 3.33em;
+
+}
+
+#main-doc ul li{
+    margin: 0.33em 2rem 0 0.66em;
+}
+
+.main-section{
+    margin-left: 1em;
+    margin-bottom: 2em;
+}
+
+
+.section-title{
+    font-size: 3em;
+    font-weight: bold;
+    margin-left: -0.33em;
+}
+
+.main-section p{
+    margin: 1em 0;
+}
+
+
+code {
+    display: block;
+    text-align: left;
+    white-space: pre-line;
+    position: relative;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 2;
+    background-color: #f7f7f7;
+    padding: 1em;
+    margin: 0.66em;
+    border-radius: 5px;
+}
+
+.activo{
+    background-color: rgb(82, 133, 156);
+}
+
+@media screen and (max-width: 750px)  {
+    #main-doc{
+        font-size: 6px;
+        margin-left: 0;
+        margin-top: 210px;
+        width:100%;
+    }
+
+    #navbar{
+        font-size: 10px;
+        position: absolute;
+        height: 200px;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border: 3px solid rgb(85, 64, 64);
+    }
+}
